@@ -29,6 +29,15 @@ llama3_configs = {
     "debugmodel": TransformerModelArgs(
         dim=256, n_layers=8, n_heads=16, rope_theta=500000
     ),
+    "125M": TransformerModelArgs(
+        dim=768,
+        n_layers=12,
+        n_heads=12,
+        n_kv_heads=12,
+        ffn_dim_multiplier=3.2,
+        multiple_of=256,
+        rope_theta=500000,
+),
     "8B": TransformerModelArgs(
         dim=4096,
         n_layers=32,
