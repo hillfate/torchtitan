@@ -37,7 +37,16 @@ llama3_configs = {
         ffn_dim_multiplier=3.2,
         multiple_of=256,
         rope_theta=500000,
-),
+    ),  # acutally 409M
+    "1B": TransformerModelArgs(
+        dim=1024,             
+        n_layers=48,          
+        n_heads=16,           
+        n_kv_heads=8,        
+        ffn_dim_multiplier=1.3,  
+        multiple_of=256,      
+        rope_theta=500000,   
+    ),
     "8B": TransformerModelArgs(
         dim=4096,
         n_layers=32,
