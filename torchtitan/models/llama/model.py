@@ -440,6 +440,15 @@ class Transformer(nn.Module, ModelProtocol):
         # passthrough for nonexistent layers, allows easy configuration of pipeline parallel stages
         h = self.tok_embeddings(tokens) if self.tok_embeddings else tokens
 
+        # h: b l d
+        # print(f'using bigram embedding')
+        # s = h.size()
+        # h = h.view(s[0],-1)
+        # d2 = s[2]//2
+        # h = h.roll(d2,1)
+        # h[:,:d2] = 0
+        # h = h.view(*s)
+
         for layer in self.layers.values():
             h = layer(h, self.freqs_cis)
 
